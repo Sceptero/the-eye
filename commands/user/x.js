@@ -6,7 +6,7 @@ let vm = new VM();
 const ZERO_WIDTH_SPACE = String.fromCharCode(8203);
 
 module.exports = {
-    trigger: /^x$/,
+    trigger: "x",
     action: function (bot, msg, args) {
 
         let code = args.join(" ");

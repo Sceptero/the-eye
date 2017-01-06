@@ -55,16 +55,16 @@ module.exports = class MessagesHandler {
 
         if (msg.content.startsWith(this.bot.config.adminCommandPrefix)) {
             let args = msg.content.split(" ");
-            let cmd = args.shift().substr(1);
+            let cmd = args.shift().substr(1).toLowerCase();
 
             for (let command of this.commands.admin)
-                if (command.trigger.test(cmd)) command.action(this.bot, msg, args);
+                if (command.trigger === cmd) command.action(this.bot, msg, args);
         } else if (msg.content.startsWith(this.bot.config.userCommandPrefix)) {
             let args = msg.content.split(" ");
-            let cmd = args.shift().substr(1);
+            let cmd = args.shift().substr(1).toLowerCase();
 
             for (let command of this.commands.user)
-                if (command.trigger.test(cmd)) command.action(this.bot, msg, args);
+                if (command.trigger === cmd) command.action(this.bot, msg, args);
         }
     }
 }
