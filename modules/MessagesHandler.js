@@ -53,17 +53,17 @@ module.exports = class MessagesHandler {
         this.karma.checkGoodDeed(msg);
         this.karma.checkEvilDeed(msg);
 
-        if (msg.content.startsWith(this.bot.config.adminCommandPrefix)) {
-            let args = msg.content.split(" ");
-            let cmd = args.shift().substr(1).toLowerCase();
-
-            for (let command of this.commands.admin)
-                if (command.trigger === cmd) command.action(this.bot, msg, args);
-        } else if (msg.content.startsWith(this.bot.config.userCommandPrefix)) {
+        if (msg.content.startsWith(this.bot.config.userCommandPrefix)) {
             let args = msg.content.split(" ");
             let cmd = args.shift().substr(1).toLowerCase();
 
             for (let command of this.commands.user)
+                if (command.trigger === cmd) command.action(this.bot, msg, args);
+        } else if (msg.content.startsWith(this.bot.config.adminCommandPrefix) && msg.member.roles.has(this.bot.config.adminRoleId)) {
+            let args = msg.content.split(" ");
+            let cmd = args.shift().substr(1).toLowerCase();
+
+            for (let command of this.commands.admin)
                 if (command.trigger === cmd) command.action(this.bot, msg, args);
         }
     }
