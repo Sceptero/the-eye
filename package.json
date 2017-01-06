@@ -1,0 +1,33 @@
+{
+  "name": "the-eye",
+  "version": "1.0.0",
+  "description": "Eye of Providence Discord BOT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sceptero/the-eye.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord.js",
+    "node"
+  ],
+  "author": "Sceptero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sceptero/the-eye/issues"
+  },
+  "homepage": "https://github.com/Sceptero/the-eye#readme",
+  "devDependencies": {
+    "discord.js": "^11.0.0",
+    "node-opus": "^0.2.4"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0",
+    "vm2": "^3.1.0"
+  }
+}
